@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="royal">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvaa Engineers — Licensed Building Surveyor & CSC Operator</title>
+    <meta name="description" content="Precision-driven building surveying and certified CSC services in Dharmapuri, Tamil Nadu.">
+    <meta property="og:title" content="Yuvaa Engineers — Licensed Building Surveyor & CSC Operator">
+    <meta property="og:description" content="Precision-driven building surveying and certified CSC services in Dharmapuri, Tamil Nadu.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo-icon">
+                <img src="logo.png" alt="Yuvaa" class="loader-logo-img">
+                <div class="loader-ring loader-ring-1"></div>
+                <div class="loader-ring loader-ring-2"></div>
+                <div class="loader-ring loader-ring-3"></div>
+            </div>
+            <p class="loader-text">YUVAA ENGINEERS</p>
+            <div class="loader-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <p class="loader-tagline">Licensed Building Surveyor &amp; CSC Operator</p>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- Elegant Background Decor -->
+    <div class="bg-decor" aria-hidden="true">
+        <div class="bg-grid"></div>
+        <div class="bg-glow bg-glow-1"></div>
+        <div class="bg-glow bg-glow-2"></div>
+        <div class="bg-glow bg-glow-3"></div>
+    </div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" data-cursor="hover" aria-label="Yuvaa Engineers home">
+                <img src="logo.png" alt="Yuvaa Engineers Logo">
+                <span class="logo-text">YUVAA</span>
+            </a>
+            <div class="nav-links">
+                <a href="#services" data-cursor="hover">Services</a>
+                <a href="#process" data-cursor="hover">Process</a>
+                <a href="projects.html" data-cursor="hover">Projects</a>
+                <a href="team.html" data-cursor="hover">Team</a>
+                <a href="gallery.html" data-cursor="hover">Gallery</a>
+                <a href="#contact" data-cursor="hover">Contact</a>
+            </div>
+            <a href="tel:9952172210" class="nav-cta" data-cursor="hover">
+                <span>Call Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </a>
+            <button id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#process">Process</a>
+        <a href="projects.html">Projects</a>
+        <a href="team.html">Team</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact-form.html">Contact Form</a>
+        <a href="survey.html">Survey Booking</a>
+        <a href="csc-form.html">CSC Request</a>
+        <a href="tel:9952172210" class="mobile-call">Call: 9952172210</a>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" aria-label="Scroll back to top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <!-- Toast -->
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Sidebar Toggle Button -->
+    <button id="sidebar-toggle" aria-label="Toggle services sidebar" aria-expanded="false" data-cursor="hover">
+        <svg class="sidebar-toggle-icon-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="sidebar-toggle-icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+        <span class="sidebar-toggle-label">Services</span>
+    </button>
+
+    <div id="sidebar-backdrop"></div>
+
+    <!-- Services Sidebar -->
+    <aside id="services-sidebar" aria-label="All services">
+        <div class="sidebar-inner">
+            <div class="sidebar-header">
+                <span class="sidebar-title">ALL SERVICES</span>
+                <span class="sidebar-count">17+ Services</span>
+            </div>
+
+            <div class="sidebar-section-label">&#9733; Most Requested</div>
+            <a href="survey.html" class="sidebar-link featured" data-cursor="hover">Building Surveys</a>
+            <a href="csc-form.html" class="sidebar-link featured" data-cursor="hover">Aadhaar Services</a>
+            <a href="csc-form.html" class="sidebar-link featured" data-cursor="hover">PAN Card</a>
+            <a href="survey.html" class="sidebar-link featured" data-cursor="hover">Structural Analysis</a>
+
+            <div class="sidebar-section-label">Building Surveying</div>
+            <a href="survey.html" class="sidebar-link" data-cursor="hover">Property Inspection</a>
+            <a href="survey.html" class="sidebar-link" data-cursor="hover">Compliance Certification</a>
+            <a href="survey.html" class="sidebar-link" data-cursor="hover">Heritage Surveys</a>
+            <a href="survey.html" class="sidebar-link" data-cursor="hover">Consulting Services</a>
+
+            <div class="sidebar-section-label">Identity &amp; Documents</div>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Voter ID Services</a>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Passport Application</a>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Certificates</a>
+
+            <div class="sidebar-section-label">Finance &amp; Banking</div>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Banking Services</a>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Insurance Services</a>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Pension Services</a>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Bill Payment</a>
+
+            <div class="sidebar-section-label">Health &amp; Other</div>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Telemedicine / Health</a>
+            <a href="csc-form.html" class="sidebar-link" data-cursor="hover">Other Services</a>
+        </div>
+    </aside>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-content">
+            <div class="hero-logo reveal">
+                <img src="logo.png" alt="Yuvaa Engineers Logo">
+            </div>
+            <div class="hero-badge reveal" data-delay="0">
+                <span class="badge-dot"></span>
+                Dharmapuri, Tamil Nadu &middot; Est. 2020
+            </div>
+            <h1 class="hero-title">
+                <span class="reveal-text" data-delay="0">Yuvaa</span>
+                <span class="reveal-text gradient-text" data-delay="100">Engineers</span>
+            </h1>
+            <p class="hero-subtitle reveal" data-delay="200">
+                Licensed Building Surveyor &amp; CSC Operator
+            </p>
+            <div class="hero-tags reveal" data-delay="300">
+                <span class="tag">CSC Operator</span>
+                <span class="tag">WhatsApp: 9952172210</span>
+                <span class="tag">VLE &middot; Dharmapuri</span>
+            </div>
+            <div class="hero-actions reveal" data-delay="400">
+                <a href="tel:9952172210" class="btn btn-primary" data-cursor="hover">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    Call: 9952172210
+                </a>
+                <a href="https://wa.me/919952172210" target="_blank" rel="noopener" class="btn btn-ghost" data-cursor="hover">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    WhatsApp Us
+                </a>
+            </div>
+            <a href="#services" class="scroll-indicator reveal" data-delay="500" data-cursor="hover" aria-label="Scroll to services">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </a>
+        </div>
+        <div class="hero-3d-scene" id="hero-3d"></div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-wrapper" aria-hidden="true">
+        <div class="marquee">
+            <div class="marquee-track"><span>Building Surveys</span><span class='marquee-dot'>&#9670;</span><span>Structural Analysis</span><span class='marquee-dot'>&#9670;</span><span>Property Inspection</span><span class='marquee-dot'>&#9670;</span><span>Compliance Certification</span><span class='marquee-dot'>&#9670;</span><span>Heritage Surveys</span><span class='marquee-dot'>&#9670;</span><span>CSC Services</span><span class='marquee-dot'>&#9670;</span><span>CSC Operator</span><span class='marquee-dot'>&#9670;</span><span>Dharmapuri, Tamil Nadu</span><span class='marquee-dot'>&#9670;</span><span>Building Surveys</span><span class='marquee-dot'>&#9670;</span><span>Structural Analysis</span><span class='marquee-dot'>&#9670;</span><span>Property Inspection</span><span class='marquee-dot'>&#9670;</span><span>Compliance Certification</span><span class='marquee-dot'>&#9670;</span><span>Heritage Surveys</span><span class='marquee-dot'>&#9670;</span><span>CSC Services</span><span class='marquee-dot'>&#9670;</span><span>CSC Operator</span><span class='marquee-dot'>&#9670;</span><span>Dharmapuri, Tamil Nadu</span><span class='marquee-dot'>&#9670;</span></div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card reveal" data-delay="0">
+                    <div class="stat-number" data-target="10" data-suffix="+">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card reveal" data-delay="100">
+                    <div class="stat-number" data-target="500" data-suffix="+">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card reveal" data-delay="200">
+                    <div class="stat-number" data-target="17" data-suffix="+">0</div>
+                    <div class="stat-label">Total Services</div>
+                </div>
+                <div class="stat-card reveal" data-delay="300">
+                    <div class="stat-number" data-target="48" data-suffix="h">0</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal">Our Expertise</span>
+                <h2 class="section-title reveal" data-delay="100">What We <span class="gradient-text">Deliver</span></h2>
+                <p class="section-desc reveal" data-delay="200">
+                    Precision-driven building surveying and certified CSC services for the people of Dharmapuri.
+                </p>
+            </div>
+
+            <div class="services-subheader reveal">
+                <h3>Building Surveying <span class="gradient-text">Services</span></h3>
+                <p>Click any service to <strong>book a survey appointment</strong></p>
+            </div>
+            <div class="services-grid">
+                <a href="survey.html" class="service-card reveal" data-delay="0" data-tilt data-cursor="hover">
+                    <div class="service-number">01</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 42V18L24 6L42 18V42H30V28H18V42H6Z" stroke-linejoin="round"/><rect x="21" y="32" width="6" height="10"/></svg>
+                    </div>
+                    <h3>Building Surveys</h3>
+                    <p><strong>Comprehensive structural assessments</strong> and detailed <strong>condition reports</strong> for residential and commercial properties.</p>
+                    <span class="service-arrow">Book Now &rarr;</span>
+                </a>
+                <a href="survey.html" class="service-card reveal" data-delay="100" data-tilt data-cursor="hover">
+                    <div class="service-number">02</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 40L24 8L40 40" stroke-linejoin="round"/><line x1="14" y1="28" x2="34" y2="28"/><line x1="8" y1="40" x2="40" y2="40"/></svg>
+                    </div>
+                    <h3>Structural Analysis</h3>
+                    <p>Expert evaluation of <strong>structural integrity</strong>, <strong>load-bearing capacity</strong>, and code compliance.</p>
+                    <span class="service-arrow">Book Now &rarr;</span>
+                </a>
+                <a href="survey.html" class="service-card reveal" data-delay="200" data-tilt data-cursor="hover">
+                    <div class="service-number">03</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="20" cy="20" r="12"/><line x1="29" y1="29" x2="40" y2="40"/><line x1="14" y1="20" x2="26" y2="20"/><line x1="20" y1="14" x2="20" y2="26"/></svg>
+                    </div>
+                    <h3>Property Inspection</h3>
+                    <p>Thorough <strong>pre-purchase inspections</strong> and <strong>defect identification</strong> for informed decisions.</p>
+                    <span class="service-arrow">Book Now &rarr;</span>
+                </a>
+                <a href="survey.html" class="service-card reveal" data-delay="300" data-tilt data-cursor="hover">
+                    <div class="service-number">04</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="6" width="32" height="36" rx="2"/><line x1="14" y1="14" x2="34" y2="14"/><line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="30" x2="26" y2="30"/><path d="M28 34L32 38L40 30" stroke-width="2"/></svg>
+                    </div>
+                    <h3>Compliance Certification</h3>
+                    <p>Licensed certification for <strong>building code compliance</strong>, <strong>safety standards</strong>, and regulatory requirements.</p>
+                    <span class="service-arrow">Book Now &rarr;</span>
+                </a>
+                <a href="survey.html" class="service-card reveal" data-delay="400" data-tilt data-cursor="hover">
+                    <div class="service-number">05</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6L8 14V20C8 30 14 38 24 42C34 38 40 30 40 20V14L24 6Z" stroke-linejoin="round"/><path d="M18 24L22 28L30 20" stroke-width="2"/></svg>
+                    </div>
+                    <h3>Heritage Surveys</h3>
+                    <p>Specialized surveys for <strong>heritage buildings</strong>, <strong>preservation assessments</strong>, and restoration planning.</p>
+                    <span class="service-arrow">Book Now &rarr;</span>
+                </a>
+                <a href="survey.html" class="service-card reveal" data-delay="500" data-tilt data-cursor="hover">
+                    <div class="service-number">06</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="28" rx="2"/><line x1="6" y1="18" x2="42" y2="18"/><rect x="12" y="24" width="8" height="6" rx="1"/><rect x="24" y="24" width="12" height="6" rx="1"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></svg>
+                    </div>
+                    <h3>Consulting Services</h3>
+                    <p>Professional consultancy for <strong>construction projects</strong>, <strong>renovation planning</strong>, and building maintenance.</p>
+                    <span class="service-arrow">Book Now &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSC / G2C Services Section -->
+    <section id="csc-services" class="csc-services-section">
+        <div class="container">
+            <div class="services-subheader reveal">
+                <h3>CSC / G2C <span class="gradient-text">Digital Services</span></h3>
+                <p>Authorized <strong>Village Level Entrepreneur (VLE)</strong> &middot; Click any service to <strong>request it online</strong></p>
+            </div>
+            <div class="csc-grid">
+                <a href="csc-form.html" class="csc-card reveal" data-delay="0" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 00-3 3v1a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M5 8h14l-1 12a2 2 0 01-2 2H8a2 2 0 01-2-2L5 8z"/></svg></div>
+                    <h4>Aadhaar Services</h4>
+                    <p><strong>Aadhaar enrollment</strong>, updates, and corrections at our authorized CSC center.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="50" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+                    <h4>PAN Card</h4>
+                    <p><strong>New PAN card application</strong> and correction services made easy.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="100" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg></div>
+                    <h4>Voter ID Services</h4>
+                    <p><strong>Voter ID registration</strong>, corrections, and updates for all eligible citizens.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="150" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73L13 2.27a2 2 0 00-2 0L4 6.27A2 2 0 003 8v8a2 2 0 001 1.73l7 4.05a2 2 0 002 0l7-4.05A2 2 0 0021 16z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                    <h4>Passport Application</h4>
+                    <p><strong>Passport application</strong> assistance and verification support.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="200" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                    <h4>Pension Services</h4>
+                    <p><strong>Pension enrollment</strong>, verification, and disbursement support for seniors.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="250" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+                    <h4>Certificates</h4>
+                    <p><strong>Birth, Death, and Income certificates</strong> issued through government portals.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="300" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                    <h4>Bill Payment</h4>
+                    <p>Pay <strong>Electricity, Water, and Gas bills</strong> quickly and securely.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="350" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg></div>
+                    <h4>Banking Services</h4>
+                    <p><strong>Banking services</strong> including deposits, withdrawals, and account support.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="400" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h4>Insurance Services</h4>
+                    <p><strong>Insurance enrollment</strong> and premium payments for various schemes.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="450" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.29 1.51 4.04 3 5.5l7 7 7-7z"/><path d="M12 8v4M10 10h4"/></svg></div>
+                    <h4>Telemedicine / Health</h4>
+                    <p><strong>Telemedicine consultations</strong> and health services for remote access to doctors.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="csc-card reveal" data-delay="500" data-cursor="hover">
+                    <div class="csc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+                    <h4>Other Services</h4>
+                    <p>Have a different requirement? <strong>Request any G2C service</strong> not listed above.</p>
+                    <span class="csc-arrow">Request &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-left">
+                    <span class="section-tag reveal">About Us</span>
+                    <h2 class="section-title reveal" data-delay="100">
+                        Trusted expertise,<br><span class="gradient-text">built on precision</span>
+                    </h2>
+                    <p class="about-text reveal" data-delay="200">
+                        With years of expertise in building surveying and structural analysis, Yuvaa Engineers stands as a trusted name in the industry. Our licensed professionals bring precision, reliability, and comprehensive knowledge to every project.
+                    </p>
+                    <p class="about-text reveal" data-delay="300">
+                        We specialize in delivering detailed assessments that help property owners, buyers, and developers make informed decisions — proudly serving Dharmapuri, Tamil Nadu and surrounding regions.
+                    </p>
+                </div>
+                <div class="about-right reveal" data-delay="200">
+                    <div class="about-card">
+                        <div class="about-card-glow"></div>
+                        <div class="about-card-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="6" width="32" height="36" rx="2"/><circle cx="24" cy="20" r="6"/><path d="M18 36C18 32 20 30 24 30C28 30 30 32 30 36" stroke-linecap="round"/></svg>
+                        </div>
+                        <h3>CSC Services</h3>
+                        <p>Authorized Village Level Entrepreneur (VLE) under Tamil Nadu's CSC network. We bridge the gap between citizens and government — providing seamless access to Government-to-Citizen (G2C) digital services at your doorstep in Dharmapuri.</p>
+                        <div class="about-card-tags">
+                            <span>G2C Services</span>
+                            <span>Digital India</span>
+                            <span>Authorized VLE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal">Simple Process</span>
+                <h2 class="section-title reveal" data-delay="100">How It <span class="gradient-text">Works</span></h2>
+                <p class="section-desc reveal" data-delay="200">
+                    From inquiry to completion — get your building survey or CSC service in four easy steps.
+                </p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card reveal" data-delay="0">
+                    <div class="process-number">01</div>
+                    <div class="process-line"></div>
+                    <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                    <h3>Reach Out</h3>
+                    <p>Call us at <strong>9952172210</strong>, WhatsApp, or fill out our online form. Tell us what you need.</p>
+                </div>
+                <div class="process-card reveal" data-delay="100">
+                    <div class="process-number">02</div>
+                    <div class="process-line"></div>
+                    <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                    <h3>Schedule a Visit</h3>
+                    <p>Pick a <strong>preferred date and time slot</strong>. We'll confirm your appointment within 24 hours.</p>
+                </div>
+                <div class="process-card reveal" data-delay="200">
+                    <div class="process-number">03</div>
+                    <div class="process-line"></div>
+                    <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+                    <h3>We Survey / Process</h3>
+                    <p>Our licensed team conducts a <strong>thorough on-site assessment</strong> or processes your CSC request.</p>
+                </div>
+                <div class="process-card reveal" data-delay="300">
+                    <div class="process-number">04</div>
+                    <div class="process-line"></div>
+                    <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+                    <h3>Get Your Report</h3>
+                    <p>Receive a <strong>detailed report</strong> or certificate within the agreed timeline. Done with precision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal">Why Choose Us</span>
+                <h2 class="section-title reveal" data-delay="100">Built on <span class="gradient-text">Trust &amp; Precision</span></h2>
+                <p class="section-desc reveal" data-delay="200">
+                    We combine licensed expertise with cutting-edge digital services to serve Dharmapuri.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal" data-delay="0">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                    <h3>Licensed &amp; Certified</h3>
+                    <p>Fully <strong>licensed building surveyors</strong> and authorized CSC operators you can trust.</p>
+                </div>
+                <div class="feature-card reveal" data-delay="100">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                    <h3>Fast Turnaround</h3>
+                    <p>We respond within <strong>48 hours</strong> and deliver reports on schedule, every time.</p>
+                </div>
+                <div class="feature-card reveal" data-delay="200">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+                    <h3>Local Experts</h3>
+                    <p>Based in <strong>Dharmapuri</strong> — we understand local building codes, regulations, and terrain.</p>
+                </div>
+                <div class="feature-card reveal" data-delay="300">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                    <h3>Digital Services</h3>
+                    <p>Authorized <strong>VLE providing G2C services</strong> — Aadhaar, PAN, certificates, and more under one roof.</p>
+                </div>
+                <div class="feature-card reveal" data-delay="400">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></div>
+                    <h3>Detailed Reports</h3>
+                    <p>Comprehensive <strong>condition reports</strong> with photos, findings, and actionable recommendations.</p>
+                </div>
+                <div class="feature-card reveal" data-delay="500">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                    <h3>Easy Communication</h3>
+                    <p>Reach us via <strong>phone, WhatsApp, or online forms</strong>. We're always just a message away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-inner">
+                <span class="section-tag reveal">Get In Touch</span>
+                <h2 class="section-title reveal" data-delay="100">
+                    Ready to ensure<br>your <span class="gradient-text">building's integrity?</span>
+                </h2>
+                <p class="section-desc reveal" data-delay="200">
+                    Contact our licensed team in Dharmapuri today. We respond within 48 hours.
+                </p>
+                <div class="contact-grid">
+                    <a href="tel:9952172210" class="contact-card reveal" data-delay="0" data-cursor="hover">
+                        <div class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+                        <div class="contact-info">
+                            <span class="contact-label">Phone</span>
+                            <span class="contact-value">9952172210</span>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/919952172210" target="_blank" rel="noopener" class="contact-card reveal" data-delay="100" data-cursor="hover">
+                        <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></div>
+                        <div class="contact-info">
+                            <span class="contact-label">WhatsApp</span>
+                            <span class="contact-value">9952172210</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/yuvaa_engineers" target="_blank" rel="noopener" class="contact-card reveal" data-delay="200" data-cursor="hover">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label">Instagram</span>
+                            <span class="contact-value">@yuvaa_engineers</span>
+                        </div>
+                    </a>
+                    <div class="contact-card reveal" data-delay="300">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">Dharmapuri, Tamil Nadu</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="tel:9952172210" class="btn btn-primary btn-large reveal" data-delay="400" data-cursor="hover">
+                    Call Now: 9952172210
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section id="forms" class="form-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal">Online Forms</span>
+                <h2 class="section-title reveal" data-delay="100">Fill Out a <span class="gradient-text">Form</span></h2>
+                <p class="section-desc reveal" data-delay="200">
+                    Choose from our online forms — send us an inquiry, book a survey, or request CSC services.
+                </p>
+            </div>
+            <div class="forms-grid">
+                <a href="contact-form.html" class="form-choice-card reveal" data-delay="0" data-cursor="hover">
+                    <div class="form-choice-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="6" width="32" height="36" rx="2"/><line x1="14" y1="16" x2="34" y2="16"/><line x1="14" y1="24" x2="34" y2="24"/><line x1="14" y1="32" x2="26" y2="32"/></svg>
+                    </div>
+                    <h3>Contact / Inquiry</h3>
+                    <p>Send us a message with your details and we'll get back to you within 48 hours.</p>
+                    <span class="btn btn-primary">Open Form &rarr;</span>
+                </a>
+                <a href="survey.html" class="form-choice-card reveal" data-delay="100" data-cursor="hover">
+                    <div class="form-choice-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="28" rx="2"/><line x1="6" y1="18" x2="42" y2="18"/><rect x="12" y="24" width="8" height="6" rx="1"/><line x1="24" y1="26" x2="36" y2="26"/><line x1="24" y1="30" x2="32" y2="30"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></svg>
+                    </div>
+                    <h3>Survey / Booking</h3>
+                    <p>Book a building survey appointment. Answer a few questions and pick your preferred date.</p>
+                    <span class="btn btn-primary">Open Form &rarr;</span>
+                </a>
+                <a href="csc-form.html" class="form-choice-card reveal" data-delay="200" data-cursor="hover">
+                    <div class="form-choice-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6L8 14V20C8 30 14 38 24 42C34 38 40 30 40 20V14L24 6Z" stroke-linejoin="round"/><path d="M18 24L22 28L30 20" stroke-width="2"/></svg>
+                    </div>
+                    <h3>CSC Service Request</h3>
+                    <p>Request Government-to-Citizen (G2C) digital services through our authorized CSC center.</p>
+                    <span class="btn btn-primary">Open Form &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Yuvaa Engineers Logo">
+                    <span class="logo-text">YUVAA ENGINEERS</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#services" data-cursor="hover">Services</a>
+                    <a href="#process" data-cursor="hover">Process</a>
+                    <a href="projects.html" data-cursor="hover">Projects</a>
+                    <a href="team.html" data-cursor="hover">Team</a>
+                    <a href="gallery.html" data-cursor="hover">Gallery</a>
+                    <a href="#contact" data-cursor="hover">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Yuvaa Engineers. Licensed Building Surveyor &amp; CSC Operator &middot; Dharmapuri, Tamil Nadu</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com/yuvaa_engineers" target="_blank" rel="noopener" data-cursor="hover">Instagram</a>
+                    <a href="https://wa.me/919952172210" target="_blank" rel="noopener" data-cursor="hover">WhatsApp: 9952172210</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <button id="theme-toggle" aria-label="Switch color theme" title="Switch theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="main.js"></script>
+</body>
+</html>

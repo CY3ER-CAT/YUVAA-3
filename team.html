@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="royal">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team — Yuvaa Engineers</title>
+    <meta name="description" content="Meet the licensed professionals behind Yuvaa Engineers.">
+    <meta property="og:title" content="Our Team — Yuvaa Engineers">
+    <meta property="og:description" content="Meet the licensed professionals behind Yuvaa Engineers.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo-icon">
+                <img src="logo.png" alt="Yuvaa" class="loader-logo-img">
+                <div class="loader-ring loader-ring-1"></div>
+                <div class="loader-ring loader-ring-2"></div>
+                <div class="loader-ring loader-ring-3"></div>
+            </div>
+            <p class="loader-text">YUVAA ENGINEERS</p>
+            <div class="loader-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <p class="loader-tagline">Licensed Building Surveyor &amp; CSC Operator</p>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- Elegant Background Decor -->
+    <div class="bg-decor" aria-hidden="true">
+        <div class="bg-grid"></div>
+        <div class="bg-glow bg-glow-1"></div>
+        <div class="bg-glow bg-glow-2"></div>
+        <div class="bg-glow bg-glow-3"></div>
+    </div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" data-cursor="hover" aria-label="Yuvaa Engineers home">
+                <img src="logo.png" alt="Yuvaa Engineers Logo">
+                <span class="logo-text">YUVAA</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" data-cursor="hover">Home</a>
+                <a href="index.html#services" data-cursor="hover">Services</a>
+                <a href="projects.html" data-cursor="hover">Projects</a>
+                <a href="team.html" data-cursor="hover">Team</a>
+                <a href="gallery.html" data-cursor="hover">Gallery</a>
+                <a href="contact-form.html" data-cursor="hover">Forms</a>
+            </div>
+            <a href="tel:9952172210" class="nav-cta" data-cursor="hover">
+                <span>Call Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </a>
+            <button id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#process">Process</a>
+        <a href="projects.html">Projects</a>
+        <a href="team.html">Team</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact-form.html">Contact Form</a>
+        <a href="survey.html">Survey Booking</a>
+        <a href="csc-form.html">CSC Request</a>
+        <a href="tel:9952172210" class="mobile-call">Call: 9952172210</a>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" aria-label="Scroll back to top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <!-- Toast -->
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <section class="page-header">
+        <div class="page-header-glow"></div>
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a> / Team</div>
+            <h1>Our Team</h1>
+            <p>Licensed professionals bringing precision and expertise to every project.</p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-grid">
+            <div class="team-card reveal" data-delay="0">
+                <div class="team-avatar">Y</div>
+                <h3>Yuvaa Founder</h3>
+                <div class="team-role">Lead Surveyor & Founder</div>
+                <p>Licensed building surveyor with over 10 years of experience in structural analysis, property inspection, and compliance certification across Tamil Nadu.</p>
+                <div class="team-skills"><span>Building Surveys</span><span>Structural Analysis</span><span>Compliance</span></div>
+            </div>
+            <div class="team-card reveal" data-delay="100">
+                <div class="team-avatar">N</div>
+                <h3>Naveenprasanth</h3>
+                <div class="team-role">Coder & Web Developer</div>
+                <p>Developer who designed and built the Yuvaa Engineers website — coding, web design, and technical support. Turning local business into a professional digital presence.</p>
+                <div class="team-skills"><span>HTML / CSS / JS</span><span>Web Design</span><span>Tech Support</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Yuvaa Engineers Logo">
+                    <span class="logo-text">YUVAA ENGINEERS</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html" data-cursor="hover">Home</a>
+                    <a href="index.html#services" data-cursor="hover">Services</a>
+                    <a href="projects.html" data-cursor="hover">Projects</a>
+                    <a href="team.html" data-cursor="hover">Team</a>
+                    <a href="contact-form.html" data-cursor="hover">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Yuvaa Engineers. Licensed Building Surveyor &amp; CSC Operator &middot; Dharmapuri, Tamil Nadu</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com/yuvaa_engineers" target="_blank" rel="noopener" data-cursor="hover">Instagram</a>
+                    <a href="https://wa.me/919952172210" target="_blank" rel="noopener" data-cursor="hover">WhatsApp: 9952172210</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <button id="theme-toggle" aria-label="Switch color theme" title="Switch theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20z"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="main.js"></script>
+</body>
+</html>
